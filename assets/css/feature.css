@@ -1,8 +1,17 @@
 .feature {
 	font-family: "Raleway", sans-serif;
 	font-size: 14px;
-	padding: 0 20px;
+	max-width: 520px;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 2rem;
+}
+
+.one-line-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .container-img > img {
@@ -12,13 +21,27 @@
 }
 
 .feature-title {
+	max-width: 100%;
 	text-transform: uppercase;
 	font-weight: bold;
 	margin: 1rem auto;
 }
 
+.feature-title:empty::before {
+	content: 'Featere title';
+}
+
 .feature-description {
+	--line-count: 5;
+	--line-height-value: 1.5em;
+	height: calc(var(--line-height-value) * var(--line-count));
+
 	text-align: center;
 	color: #6c7279;
-	line-height: 1.5em;
+	line-height: var(--line-height-value);
+
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+	overflow: hidden;
 }
